@@ -17,6 +17,8 @@ import pin from './models/Pin.js';
 dotenv.config();
 ConnectDatabase();
 const app = express();
+app.use(express.json());
+app.use(bodyParser.json());
 
 
 app.use(cors());
@@ -54,6 +56,6 @@ app.post("/pins", async (req, res) => {
         return res.status(200).json(pins);
     }
     catch(err){
-
+      res.status(500).json(err);
     }
   } )
