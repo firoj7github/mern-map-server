@@ -5,15 +5,6 @@ import bodyParser from 'body-parser';
 import ConnectDatabase from './connect.js';
 import pin from './models/Pin.js';
 
-
-
-
-
-
-
-
-
-
 dotenv.config();
 ConnectDatabase();
 const app = express();
