@@ -2,8 +2,10 @@ import  express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv'; 
 import bodyParser from 'body-parser';
-import ConnectDatabase from './connect.js';
+
 import pin from './models/Pin.js';
+import ConnectDatabase from './database/connect.js';
+
 
 dotenv.config();
 ConnectDatabase();
