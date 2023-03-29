@@ -1,9 +1,9 @@
 import  express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv'; 
-import bodyParser from 'body-parser';
 
-import pin from './models/Pin.js';
+
+import pin from './models/pin.js';
 import ConnectDatabase from './database/connect.js';
 
 
@@ -11,22 +11,16 @@ dotenv.config();
 ConnectDatabase();
 const app = express();
 app.use(express.json());
-app.use(bodyParser.json());
-
-
 app.use(cors());
-app.use(express.json());
-app.use(bodyParser.json({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 const PORT = 5000;
 
 
 
 
-app.listen(PORT, ()=>{
-    console.log(`Sever is running on port ${PORT}`);
-})
+
 
 app.get('/', (req,res)=>{
     res.send('Map server');
@@ -51,3 +45,7 @@ app.post("/pins", async (req, res) => {
       res.status(500).json(err);
     }
   } )
+
+  app.listen(PORT, ()=>{
+    console.log(`Sever is running on port ${PORT}`);
+})
